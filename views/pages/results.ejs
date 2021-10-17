@@ -1,0 +1,25 @@
+<%- include ("../partials/header") %>
+
+    <h1> hello </h1>
+    <div class="center col">
+      <% if(response_data){ %>
+        <div class="weather_container">
+            <h1>Current Weather:</h1>
+            <%= response_data.weather_current.weather[0].description %>
+        </div>
+        <% if(response_data.wiki_data!=""){ %>
+            <div class="wiki-container">
+              <h1><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h1>
+              <div class="wiki-data closed">
+
+                <p><%= response_data.wiki_data %></p>
+              </div>
+              <div class="show-more-btn">Show more information</div>
+            </div>
+
+          <%}%>
+      <% } %>
+    </div>
+
+
+<%- include ("../partials/footer") %>
