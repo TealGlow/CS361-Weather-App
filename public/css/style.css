@@ -39,10 +39,6 @@ body, html{
 .wiki-data{
   display:flex;
   align-items: flex-start;
-  padding:3rem 2rem;
-  width:600px;
-  color:white;
-
 }
 
 .wikipedia-data p{
@@ -50,14 +46,18 @@ body, html{
 }
 
 
-.wiki-container{
+.element-container{
   display:flex;
   flex-direction: column;
-  background-color:#292b2c
+  background-color:#292b2c;
+  width:600px;
+  color:white;
+  padding:1rem 2rem;
+  margin:1rem;
 }
 
-.wiki-container h1{
-  padding:.25rem .6rem 0rem .6rem;
+.element-container h1{
+
   color:white;
 }
 
@@ -91,4 +91,17 @@ body, html{
 
 .show-more-btn a{
   color:#5bc0de;
+}
+
+.weather-temp-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.weather-temp-container h1{
+  padding:1rem;
+}
+
+.weather-temp{
+  font-size: 5rem;
 }
