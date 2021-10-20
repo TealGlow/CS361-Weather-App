@@ -96,12 +96,22 @@ body, html{
 .weather-temp-container{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .weather-temp-container h1{
-  padding:1rem;
+  padding-top:4rem;
 }
 
 .weather-temp{
-  font-size: 5rem;
+  font-size: 6rem;
+}
+
+.weather-desc{
+  margin:2rem;
+
+  display:flex;
+  flex-direction: column;
 }

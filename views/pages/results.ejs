@@ -7,9 +7,13 @@
             <h2>Current Weather:</h2>
             <span class="weather-temp-container">
               <h1 class="weather-temp"><%= response_data.weather_current.main.temp %>&#176;F</h1>
-              <!--<h1><%= response_data.weather_current.weather[0].description %></h1>-->
-              <img src="<%= "http://openweathermap.org/img/wn/"+response_data.weather_current.weather[0].icon+"@2x.png"%>"/>
+
+              <span class="weather-desc">
+                <img title="<%= response_data.weather_current.weather[0].description %>" src="<%= "http://openweathermap.org/img/wn/"+response_data.weather_current.weather[0].icon+"@2x.png"%>"/>
+                <%= response_data.weather_current.weather[0].description %>
+              </span>
             </span>
+
             Wind: <%= response_data.weather_current.wind.speed %> mph <br/>
             Humidity: <%= response_data.weather_current.main.humidity %>%
 
