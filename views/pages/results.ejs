@@ -3,6 +3,8 @@
     <h1> hello </h1>
     <div class="center col">
       <% if(response_data){ %>
+        <!-- CURRENT WEATHER DATA -->
+        <% if(response_data.weather_current !=""){%>
         <div class="element-container">
             <h2>Current Weather:</h2>
             <span class="weather-temp-container">
@@ -15,10 +17,35 @@
             </span>
 
             Wind: <%= response_data.weather_current.wind.speed %> mph <br/>
-            Humidity: <%= response_data.weather_current.main.humidity %>%
-
-
+            Humidity: <%= response_data.weather_current.main.humidity %> %
         </div>
+        <% } %>
+        <!-- END OF CURRENT WEATHER DATA -->
+
+        <!-- 5 DAY FORECAST -->
+        <% if(response_data.five_day!=""){%>
+          <div class="element-container">
+            <h2>Five Day Forecast:</h2>
+            <% for(var i=0; i<response_data.five_day.list.length; i++){ %>
+              <% let temp_time = new Date(response_data.five_day.list[i].dt_txt); %>
+              <% if(temp_time.getHours()=="0"){%>
+                <!-- if it is a new day, we are going to display the date:-->
+                <%=temp_time.getMonth()+"/"+temp_time.getDate()+"/"+temp_time.getFullYear()%>
+
+              <%}%>
+              <!-- display the temp for that time frame-->
+              <span><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=response_data.five_day.list[i].main.temp%>&#176;F</span>
+            <%}%>
+          </div>
+
+
+        <%}%>
+
+
+        <!-- END OF 5 DAY FORECAST-->
+
+
+
         <% if(response_data.wiki_data!=""){ %>
             <div class="element-container">
               <h2><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h2>
