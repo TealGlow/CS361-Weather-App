@@ -37,7 +37,7 @@ app.post("/", (req, res)=>{
   //res.render("pages/index",{message:user_input.userLoc});
 
   const temp_wiki= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  //const temp_wiki="Error fetching Wikipedia data for this location.";*/
+  //const temp_wiki="Error fetching Wikipedia data for this location.";
   const temp_weather = {coord:{lon:-122.7996,lat:45.456},weather:[{id:803,main:"Clouds",description:"broken clouds",icon:"04d"}],base:"stations",main:{temp:59.58,feels_like:58.57,temp_min:55.36,temp_max:62.69,pressure:1014,humidity:71},visibility:10000,wind:{speed:1.99,deg:181,gust:7},clouds:{all:75},dt:1634773158,sys:{type:2,id:2004622,country:"US",sunrise:1634740464,sunset:1634779026},timezone:-25200,id:0,name:"Beaverton",cod:200};
   const five_day_temp= {
       cod: 200,
@@ -171,6 +171,7 @@ app.post("/", (req, res)=>{
       }
     }
 
+
   const temp_location_info = {state:"Oregon", town:"Beaverton"};
   res.render("pages/results",{response_data:{wiki_data:temp_wiki, location_info:temp_location_info, weather_current:temp_weather, five_day:five_day_temp}});
 
@@ -186,7 +187,7 @@ app.post("/", (req, res)=>{
 
       response_data = {
         weather_current:response.data.weather.current,
-        weather_5_days:response.data.weather.five_day,
+        five_day:response.data.weather.five_day,
         location_info:response.data.location_info,
         wiki_data:response.data.wikipedia
       };

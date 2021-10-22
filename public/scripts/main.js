@@ -10,17 +10,19 @@ form.addEventListener("submit", function(event){
 });
 */
 
-$(".show-more-btn").click(()=>{
+$(".show-more-btn").click((e)=>{
   //console.log("hello");
-  if($(".wiki-data").hasClass("closed")){
+  console.log(e.currentTarget.parentElement);
+  $(".show-more-btn").siblings()
+  if(e.parentElement.parentElement.hasClass("closed")){
     // expand the data
 
-    $(".wiki-data").removeClass("closed");
-    $(".wiki-data").addClass("shown");
+    e.parentElement.parentElement.removeClass("closed");
+    e.parentElement.parentElement.addClass("shown");
     $(".show-more-btn").text("Show less information");
   }else{
-    $(".wiki-data").removeClass("shown");
-    $(".wiki-data").addClass("closed");
+    e.parentElement.parentElement.removeClass("shown");
+    e.parentElement.parentElement.addClass("closed");
     $(".show-more-btn").text("Show more information");
   }
 });

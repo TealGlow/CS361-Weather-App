@@ -26,16 +26,24 @@
         <% if(response_data.five_day!=""){%>
           <div class="element-container">
             <h2>Five Day Forecast:</h2>
-            <% for(var i=0; i<response_data.five_day.list.length; i++){ %>
-              <% let temp_time = new Date(response_data.five_day.list[i].dt_txt); %>
-              <% if(temp_time.getHours()=="0"){%>
-                <!-- if it is a new day, we are going to display the date:-->
-                <%=temp_time.getMonth()+"/"+temp_time.getDate()+"/"+temp_time.getFullYear()%>
+            <div class="five-day-container closed">
+              <% for(var i=0; i<response_data.five_day.list.length; i++){ %>
+                <% let temp_time = new Date(response_data.five_day.list[i].dt_txt); %>
+                <% if(temp_time.getHours()=="0" || i==0){%>
+                  <!-- if it is a new day, we are going to display the date:-->
+                  <span class="list-group">
+                    <span class="list-group-item list-group-item-info"><strong><%=(temp_time.getMonth()+1)+"/"+temp_time.getDate()+"/"+temp_time.getFullYear()%></strong></span>
+                  </span>
 
+                <%}%>
+                <!-- display the temp for that time frame-->
+                <span class="list-group">
+                  <span class="list-group-item">
+                    <%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> - <%=response_data.five_day.list[i].main.temp%>&#176;F
+                </span>
               <%}%>
-              <!-- display the temp for that time frame-->
-              <span><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=response_data.five_day.list[i].main.temp%>&#176;F</span>
-            <%}%>
+            </div>
+            <div class="show-more-btn">Show more information</div>
           </div>
 
 
