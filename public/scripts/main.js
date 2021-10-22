@@ -1,16 +1,10 @@
 
-/*const form = this.document.querySelector("#my-form");
-
-form.addEventListener("submit", function(event){
-  event.preventDefault();
-
-  //check if user submit correct data
-
-  console.log("no submit");
-});
-*/
-
 function handleClick(event){
+  // function that handles the show more button clicks
+  // when a user clicks a button it either removes the closed tag and adds
+  // the shown tag, or the other way around. Also changes the text that is shown
+  // on the button so that the user knows what to expect.
+
   let ele = event.target;
   console.log($(ele).siblings('.closed'));
   let toClose = $(ele).siblings()[1];
@@ -21,32 +15,10 @@ function handleClick(event){
     $(toClose).addClass("shown");
     $(ele).text("Show less information");
   }else{
+    // the object is already open, close it.
     $(toClose).removeClass("shown");
     $(toClose).addClass("closed");
     $(ele).text("Show more information");
   }
 
 }
-
-
-/*
-$(".show-more-btn").click(()=>{
-  //console.log("hello");
-  //console.log($(this).parent().siblings().removeClass("closed"));
-
-  console.log($(this).name)
-
-*/
-  /*
-  if($().hasClass("closed")){
-    // expand the data
-
-    e.parentElement.parentElement.removeClass("closed");
-    e.parentElement.parentElement.addClass("shown");
-    $(".show-more-btn").text("Show less information");
-  }else{
-    e.parentElement.parentElement.removeClass("shown");
-    e.parentElement.parentElement.addClass("closed");
-    $(".show-more-btn").text("Show more information");
-  }*/
-/*});*/
