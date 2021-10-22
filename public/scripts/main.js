@@ -10,11 +10,35 @@ form.addEventListener("submit", function(event){
 });
 */
 
-$(".show-more-btn").click((e)=>{
+function handleClick(event){
+  let ele = event.target;
+  console.log($(ele).siblings('.closed'));
+  let toClose = $(ele).siblings()[1];
+
+  if($(toClose).hasClass("closed")){
+    // the object is already closed
+    $(toClose).removeClass("closed");
+    $(toClose).addClass("shown");
+    $(ele).text("Show less information");
+  }else{
+    $(toClose).removeClass("shown");
+    $(toClose).addClass("closed");
+    $(ele).text("Show more information");
+  }
+
+}
+
+
+/*
+$(".show-more-btn").click(()=>{
   //console.log("hello");
-  console.log(e.currentTarget.parentElement);
-  $(".show-more-btn").siblings()
-  if(e.parentElement.parentElement.hasClass("closed")){
+  //console.log($(this).parent().siblings().removeClass("closed"));
+
+  console.log($(this).name)
+
+*/
+  /*
+  if($().hasClass("closed")){
     // expand the data
 
     e.parentElement.parentElement.removeClass("closed");
@@ -24,5 +48,5 @@ $(".show-more-btn").click((e)=>{
     e.parentElement.parentElement.removeClass("shown");
     e.parentElement.parentElement.addClass("closed");
     $(".show-more-btn").text("Show more information");
-  }
-});
+  }*/
+/*});*/
