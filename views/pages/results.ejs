@@ -39,7 +39,14 @@
                 <!-- display the temp for that time frame-->
                 <span class="list-group">
                   <span class="list-group-item">
-                    <%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> - <%=response_data.five_day.list[i].main.temp%>&#176;F
+                    <%if(temp_time.getHours() >= 12){%>
+                      <%var time_string = "PM";%>
+                    <%}else{%>
+                      <%var time_string = "AM";%>
+                    <%}%>
+
+
+                    <h3><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=time_string%></h3>  <%=response_data.five_day.list[i].main.temp%>&#176;F  <%=response_data.five_day.list[i].weather[0].description%>  Humidity: <%=response_data.five_day.list[i].main.humidity%>%
                 </span>
               <%}%>
             </div>
