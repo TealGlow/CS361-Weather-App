@@ -3,6 +3,18 @@ body, html{
   width:100%;
   padding:0;
   margin:0;
+  background-attachment: fixed;
+  /*
+    Background image from: https://pixabay.com/photos/clouds-cumulus-sky-nature-2329680/
+
+    Citation:
+    Vetsikas, Dimitris. clouds-cumulus-sky-nature-2329680. 2017. pixabay, https://pixabay.com/photos/clouds-cumulus-sky-nature-2329680/
+
+    Image by <a href="https://pixabay.com/users/dimitrisvetsikas1969-1857980/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2329680">Dimitris Vetsikas</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2329680">Pixabay</a>
+
+  */
+  background-image: url("../assets/clouds-2329680.jpg");
+  background-size:cover;
 }
 
 
@@ -13,6 +25,20 @@ body, html{
   z-index:999;
 }
 
+.citation-footer{
+  position: fixed;
+  bottom:0;
+  width:100%;
+  background-color:#292b2c;
+  color:white;
+  text-align: center;
+  padding:.4rem;
+}
+
+.citation-footer a{
+  color: #0dcaf0;
+  text-decoration: none;
+}
 
 
 .center{
@@ -23,6 +49,7 @@ body, html{
 
 
 .my-container{
+  padding:100px;
   height:100%;
 }
 
@@ -53,8 +80,8 @@ body, html{
   background-color:#292b2c;
   width:600px;
   color:white;
-  padding:1rem 2rem;
-  margin:1rem;
+  padding:2rem 3rem;
+  margin-bottom: 100px;
 }
 
 .element-container h1{
@@ -85,7 +112,7 @@ body, html{
 }
 
 .show-more-btn{
-  color:#5bc0de;
+  color:#0dcaf0;
   padding:.5rem;
   text-align: center;
 }
