@@ -8,7 +8,7 @@ function handleClick(event){
   let ele = event.target;
   console.log($(ele).siblings('.closed'));
   let toClose = $(ele).siblings()[1];
-  
+
   if($(toClose).hasClass("closed")){
     // the object is already closed
     $(toClose).removeClass("closed");

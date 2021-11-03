@@ -1,8 +1,10 @@
 <%- include ("../partials/header") %>
 
     <div class="my-container">
+
       <div class="center col">
         <% if(response_data){ %>
+          <h1 class="loc-name"><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h1>
           <!-- CURRENT WEATHER DATA -->
           <% if(response_data.weather_current !=""){%>
           <div class="element-container">
@@ -63,7 +65,7 @@
 
           <% if(response_data.wiki_data!="" && response_data.wiki_data){ %>
               <div class="element-container">
-                <h2><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h2>
+                <h2><%=response_data.location_info.town%>, <%=response_data.location_info.state%> Information:</h2>
                 <div class="wiki-data closed col">
                   <%for(var i=0; i<response_data.wiki_data.length; i++){%>
                     <p>&emsp;&emsp;<%= response_data.wiki_data[i] %></p>

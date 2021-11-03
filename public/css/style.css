@@ -25,6 +25,7 @@ body, html{
   z-index:999;
 }
 
+
 .citation-footer{
   position: fixed;
   bottom:0;
@@ -34,6 +35,7 @@ body, html{
   text-align: center;
   padding:.4rem;
 }
+
 
 .citation-footer a{
   color: #0dcaf0;
@@ -64,10 +66,13 @@ body, html{
 /*
         FORMATTING FOR THE WIKIPEDIA INFORMATION
 */
+
+
 .wiki-data{
   display:flex;
   align-items: flex-start;
 }
+
 
 .wikipedia-data p{
   background-color: blue;
@@ -84,10 +89,12 @@ body, html{
   margin-bottom: 100px;
 }
 
+
 .element-container h1{
 
   color:white;
 }
+
 
 .closed{
   overflow:hidden;
@@ -98,6 +105,7 @@ body, html{
   transition: all 1s ease;
 }
 
+
 .shown{
   overflow-x: auto;
   max-height:700px;
@@ -107,9 +115,11 @@ body, html{
   transition: all 1s ease;
 }
 
+
 .col{
   flex-direction: column;
 }
+
 
 .show-more-btn{
   color:#0dcaf0;
@@ -117,9 +127,11 @@ body, html{
   text-align: center;
 }
 
+
 .show-more-btn a{
   color:#5bc0de;
 }
+
 
 .weather-temp-container{
   display: flex;
@@ -129,13 +141,23 @@ body, html{
 
 }
 
+
 .weather-temp-container h1{
   padding-top:4rem;
 }
 
+
 .weather-temp{
+  font-size:4rem;
   font-size: 7rem;
 }
+
+
+.loc-name{
+  font-size:3rem;
+  color:white;
+}
+
 
 .weather-desc{
   margin:2rem;
