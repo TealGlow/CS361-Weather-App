@@ -13,11 +13,21 @@ function handleClick(event){
     // the object is already closed
     $(toClose).removeClass("closed");
     $(toClose).addClass("shown");
+
     $(ele).text("Show less information");
   }else{
     // the object is already open, close it.
+
+    // animate scrolling to the top while it
+    // closes
+    $(toClose).animate({scrollTop:0},"slow");
+    $(ele).animate({scrollTop:0},"slow");
+
+
     $(toClose).removeClass("shown");
     $(toClose).addClass("closed");
+    $(toClose).topScroll=0;
+    $(ele).topScroll=0;
     $(ele).text("Show more information");
   }
 
