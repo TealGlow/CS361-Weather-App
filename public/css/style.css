@@ -18,6 +18,7 @@ body, html{
 }
 
 
+
 .navbar{
   position:fixed;
   width:100%;
@@ -64,6 +65,13 @@ body, html{
 
 
 /*
+  Error message formatting
+*/
+.error-msg{
+  color:red;
+}
+
+/*
         FORMATTING FOR THE WIKIPEDIA INFORMATION
 */
 
@@ -91,11 +99,13 @@ body, html{
 
 
 .element-container h1{
-
   color:white;
 }
 
 
+/*
+  For the
+*/
 .closed{
   overflow:hidden;
   max-height:300px;

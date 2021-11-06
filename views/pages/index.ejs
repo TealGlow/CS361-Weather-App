@@ -1,20 +1,21 @@
 <%- include ("../partials/header") %>
 
     <!-- content-->
-    <div class="my-container center">
-      <form id="my-form" method="POST" action="/">
+    <div class="my-container center col">
+      <!--<form id="my-form" method="POST" action="/">-->
+      <form  id="my-form" method="POST" action="/">
         <div class="col-auto w-100 input-group mb-3">
           <input required type="text" name="userLoc" class="form-control" id="userLoc" placeholder="Please enter zip code...">
 
-            <button type="submit" class="btn btn-dark">Search</button
-
-        </div>
-        <div class="mb-3">
-            <% if(message){ %>
-                <%= message %>
-            <% } %>
+            <button type="submit" class="btn btn-dark">Search</button>
         </div>
       </form>
+      <br/>
+      <div class="error-msg mb-3">
+          <h3><% if(message){ %>
+              <%= message %>
+          <% } %></h3>
+      </div>
 
     </div>
 
