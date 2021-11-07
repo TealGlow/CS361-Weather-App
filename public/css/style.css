@@ -77,6 +77,7 @@ body, html{
 
 
 .wiki-data{
+  text-shadow: 0 0 5px #000;
   display:flex;
   align-items: flex-start;
 }
@@ -88,13 +89,16 @@ body, html{
 
 
 .element-container{
+  text-shadow: 0 0 5px #000;
   display:flex;
   flex-direction: column;
-  background-color:#292b2c;
+  /*background-color:#292b2c;*/
+  background: rgba(41, 43, 44, .9);
+  border-radius: 7px;
   width:600px;
   color:white;
   padding:2rem 3rem;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 
@@ -108,7 +112,7 @@ body, html{
 */
 .closed{
   overflow:hidden;
-  max-height:300px;
+  max-height:293px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -o-transition: all 1s ease;
@@ -158,20 +162,27 @@ body, html{
 
 
 .weather-temp{
-  font-size:4rem;
-  font-size: 7rem;
+  text-align: left;
+  font-weight:bold;
+  margin-top:-65px;
+  font-size: 5rem;
 }
 
 
 .loc-name{
+  font-weight:bold;
+  text-shadow: 0 0 5px #000;
   font-size:3rem;
   color:white;
 }
 
+.weather-box-align{
+  display:flex;
+  justify-content: space-between;
+}
 
 .weather-desc{
-  margin:2rem;
-
+  text-align: center;
   display:flex;
   flex-direction: column;
 }
@@ -179,4 +190,10 @@ body, html{
 
 .list-group{
   z-index:0;
+}
+
+
+
+.five-day-container{
+  text-shadow: 0 0 0 #fff;
 }

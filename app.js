@@ -37,15 +37,17 @@ app.post("/", (req, res)=>{
   */
 
   if(user_input.userLoc.length<5){
+    console.log("less than 5");
     res.render("pages/index",{message:"Please enter a valid location."});
   }else{
 
     if(parseInt(user_input.userLoc) != user_input.userLoc){
       // might be a state and town
+      res.render("pages/index",{message:"Error: Please enter a zip code."});
     }else{
       // validate zip and req wiki web scraper
 
-      
+
       const validate_zip = axios.get(ZIP_CODE_VALIDATE_URL+user_input.userLoc)
       .then((response)=>{
         if(response.data["valid_zip"]  == true){
@@ -110,23 +112,23 @@ function validateAndReq(response){
         };
 
         // render the response page with the data
-        res.render("pages/results", response_data);
+        res.render("pages/results.ejs", response_data);
       })
       .catch(()=>{
         // error requesting the wikipage
         console.error("Error requesting the wiki web scraper, make sure it's running or try again.");
-        res.render("pages/index",{message:"Error fetching data, try again."});
+        res.render("pages/index.ejs",{message:"Error fetching data, try again."});
       });
 
     }else{
       // zip code invalid
 
       console.error("Error invalid zip, please enter a new zip");
-      res.render("pages/index",{message:"Please enter a valid location."});
+      res.render("pages/index.ejs",{message:"Please enter a valid location."});
     }
   }).catch(()=>{
     console.log("Error");
-    res.render("pages/index",{message:"Error validating zip code please try again."});
+    res.render("pages/index.ejs",{message:"Error validating zip code please try again."});
   });
 }
 
