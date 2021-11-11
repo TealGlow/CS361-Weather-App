@@ -19,29 +19,49 @@ body, html{
 
 
 
-.navbar{
-  position:fixed;
-  width:100%;
-  padding-left:20px;
-  z-index:999;
-}
+/*
+HTML element styling
+*/
 
 
-.citation-footer{
-  position: fixed;
-  bottom:0;
-  width:100%;
-  background-color:#292b2c;
-  color:white;
-  text-align: center;
-  padding:.4rem;
-}
-
-
-.citation-footer a{
+a{
   color: #0dcaf0;
   text-decoration: none;
 }
+
+
+
+h1{
+  font-weight:bold;
+  color:white;
+}
+
+
+
+h2{
+  font-weight:bold;
+  text-shadow: 0 0 5px #000;
+  font-size:2rem;
+  color:white;
+}
+
+
+
+.text-shadow{
+  text-shadow: 0 0 5px #000;
+}
+
+
+
+.error-msg{
+  color:red;
+}
+
+
+
+/*
+Flex centering classes
+*/
 
 
 .center{
@@ -51,25 +71,65 @@ body, html{
 }
 
 
+
+.col{
+  flex-direction: column;
+}
+
+
+
+.row{
+  flex-direction: row;
+}
+
+
+
+.space-between{
+  justify-content: space-between;
+}
+
+
+
+.center-text{
+  text-align: center;
+}
+
+
+
 .my-container{
   padding:100px;
   height:100%;
 }
 
 
-.main-container{
-  height:100%;
+
+/*
+Header
+*/
+
+.navbar{
+  position:fixed;
   width:100%;
+  padding-left:20px;
+  z-index:999;
 }
 
 
 
 /*
-  Error message formatting
+footer
 */
-.error-msg{
-  color:red;
+
+.citation-footer{
+  position: fixed;
+  bottom:0;
+  width:100%;
+  background-color:#292b2c;
+  color:white;
+  padding:.4rem;
 }
+
+
 
 /*
         FORMATTING FOR THE WIKIPEDIA INFORMATION
@@ -77,22 +137,12 @@ body, html{
 
 
 .wiki-data{
-  text-shadow: 0 0 5px #000;
-  display:flex;
   align-items: flex-start;
 }
 
 
-.wikipedia-data p{
-  background-color: blue;
-}
-
 
 .element-container{
-  text-shadow: 0 0 5px #000;
-  display:flex;
-  flex-direction: column;
-  /*background-color:#292b2c;*/
   background: rgba(41, 43, 44, .9);
   border-radius: 7px;
   width:600px;
@@ -102,14 +152,11 @@ body, html{
 }
 
 
-.element-container h1{
-  color:white;
-}
-
-
 /*
-  For the
+  For the open and close show more information buttons
 */
+
+
 .closed{
   overflow:hidden;
   max-height:293px;
@@ -130,30 +177,16 @@ body, html{
 }
 
 
-.col{
-  flex-direction: column;
-}
-
 
 .show-more-btn{
   color:#0dcaf0;
   padding:.5rem;
-  text-align: center;
 }
 
 
-.show-more-btn a{
-  color:#5bc0de;
-}
-
-
-.weather-temp-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-}
+/*
+individual element styling / other
+*/
 
 
 .weather-temp-container h1{
@@ -162,38 +195,12 @@ body, html{
 
 
 .weather-temp{
-  text-align: left;
-  font-weight:bold;
   margin-top:-65px;
   font-size: 5rem;
 }
 
 
-.loc-name{
-  font-weight:bold;
-  text-shadow: 0 0 5px #000;
-  font-size:3rem;
-  color:white;
-}
-
-.weather-box-align{
-  display:flex;
-  justify-content: space-between;
-}
-
-.weather-desc{
-  text-align: center;
-  display:flex;
-  flex-direction: column;
-}
-
 
 .list-group{
   z-index:0;
-}
-
-
-
-.five-day-container{
-  text-shadow: 0 0 0 #fff;
 }

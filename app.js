@@ -1,7 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require("body-parser");
-const path = require('path');
+//const path = require('path');
 const axios = require('axios').default;
 
 const app = express();
@@ -23,12 +23,12 @@ app.get("/",(req,res)=>{
   res.render('pages/index',{message:""});
 });
 
+
+
 app.post("/", (req, res)=>{
   // form validation
   var user_input = req.body;
-  console.log(req.body);
 
-  console.log(user_input.userLoc);
   err = "Error in validating location, please try again";
 
   /*
@@ -36,74 +36,28 @@ app.post("/", (req, res)=>{
 
   */
 
-  if(user_input.userLoc.length<5){
-    console.log("less than 5");
-    res.render("pages/index",{message:"Please enter a valid location."});
+  if(user_input.userLoc.length<5 || parseInt(user_input.userLoc) != user_input.userLoc){
+    // if the code is less than 5, we are going to send the user an error
+    res.render("pages/index",{message:"Please enter a valid zip code."});
   }else{
+    // validate zip and req wiki web scraper
+    const user_input_zip = user_input.userLoc;
+    const validate_zip = axios.get(ZIP_CODE_VALIDATE_URL+user_input_zip)
+    .then((response)=>{
+      // We got a response from zip service. request the wikipedia web scraper.
 
-    if(parseInt(user_input.userLoc) != user_input.userLoc){
-      // might be a state and town
-      res.render("pages/index",{message:"Error: Please enter a zip code."});
-    }else{
-      // validate zip and req wiki web scraper
+      if(response.data.valid_zip != true){
+        // if the zip code is not valid, we are not going to request the wikipedia
+        res.render("pages/index", {message:"Invalid zip code."});
+      }
 
-
-      const validate_zip = axios.get(ZIP_CODE_VALIDATE_URL+user_input.userLoc)
+      const wiki_weather_api_request = axios.get(Wiki_API_URL+"?zip="+user_input_zip)
       .then((response)=>{
-        if(response.data["valid_zip"]  == true){
-          // zip is valid, request the web service
+        // got the wikipedia data correctly.
 
-          const api_req = axios.get(Wiki_API_URL+"?zip="+user_input.userLoc)
-          .then((response)=>{
-            // request the wiki web scraper
+        // data we got back from the response_data
+        console.log("success,", response);
 
-            // data we get back
-            response_data = {
-              weather_current:response.data.weather.current,
-              five_day:response.data.weather.five_day,
-              location_info:response.data.location_info,
-              wiki_data:response.data.wikipedia
-            };
-
-            // render the response page with the data
-            res.render("pages/results", response_data);
-          })
-          .catch(()=>{
-            // error requesting the wikipage
-            console.error("Error requesting the wiki web scraper, make sure it's running or try again.");
-            res.render("pages/index",{message:"Error fetching data, try again."});
-          });
-
-        }else{
-          // zip code invalid
-
-          console.error("Error invalid zip, please enter a new zip");
-          res.render("pages/index",{message:"Please enter a valid location."});
-        }
-      }).catch(()=>{
-        console.log("Error");
-        res.render("pages/index",{message:"Error validating zip code please try again."});
-      });
-    }
-
-  }
-
-});
-
-
-function validateAndReq(response){
-  // validate zip and req wiki web scraper
-
-  const validate_zip = axios.get(ZIP_CODE_VALIDATE_URL+user_input.userLoc)
-  .then((response)=>{
-    if(response.data["valid_zip"]  == true){
-      // zip is valid, request the web service
-
-      const api_req = axios.get(Wiki_API_URL+"?zip="+user_input.userLoc)
-      .then((response)=>{
-        // request the wiki web scraper
-
-        // data we get back
         response_data = {
           weather_current:response.data.weather.current,
           five_day:response.data.weather.five_day,
@@ -112,26 +66,22 @@ function validateAndReq(response){
         };
 
         // render the response page with the data
-        res.render("pages/results.ejs", response_data);
+        res.render("pages/results", response_data);
+
       })
       .catch(()=>{
-        // error requesting the wikipage
-        console.error("Error requesting the wiki web scraper, make sure it's running or try again.");
-        res.render("pages/index.ejs",{message:"Error fetching data, try again."});
+        // error getting the wikipedia data or api data.
+        res.render("pages/index", {message:"Error getting location data, please try again."});
       });
 
-    }else{
-      // zip code invalid
-
-      console.error("Error invalid zip, please enter a new zip");
-      res.render("pages/index.ejs",{message:"Please enter a valid location."});
+    })
+    .catch((err)=>{
+      // Error in validating the zip code, server side problem.
+      res.render("pages/index", {message:"Error validating zip, please try try again."});
+    });
     }
-  }).catch(()=>{
-    console.log("Error");
-    res.render("pages/index.ejs",{message:"Error validating zip code please try again."});
-  });
-}
 
+});
 
 
 app.get("/results", (req, res)=>{
