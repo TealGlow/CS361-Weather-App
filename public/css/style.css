@@ -92,7 +92,6 @@ body, html{
   text-shadow: 0 0 5px #000;
   display:flex;
   flex-direction: column;
-  /*background-color:#292b2c;*/
   background: rgba(41, 43, 44, .9);
   border-radius: 7px;
   width:600px;
@@ -104,6 +103,11 @@ body, html{
 
 .element-container h1{
   color:white;
+}
+
+
+.element-container h2{
+  margin-bottom:1rem;
 }
 
 
@@ -163,17 +167,37 @@ body, html{
 
 .weather-temp{
   text-align: left;
-  font-weight:bold;
+  font-weight: bold;
   margin-top:-65px;
   font-size: 5rem;
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
+.weather-time{
+  display:flex;
+  align-content: space-between;
+  justify-content: space-between;
+
+}
+
+.cap{
+  text-transform:capitalize;
+}
+
+
+.weather-time div{
+  align-content: space-between;
+}
 
 .loc-name{
   font-weight:bold;
   text-shadow: 0 0 5px #000;
   font-size:3rem;
   color:white;
+  margin-bottom:2rem;
 }
 
 .weather-box-align{
@@ -182,9 +206,16 @@ body, html{
 }
 
 .weather-desc{
-  text-align: center;
+  margin-top:-30px;
+  width:100%;
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.weather-image{
+  height:150px;
+  width:150px;
 }
 
 
