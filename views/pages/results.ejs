@@ -7,18 +7,22 @@
         <% if(response_data){ %>
           <h1 class="loc-name"><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h1>
 
+
           <!-- current weather -->
           <%- include ("../partials/currentWeather", {response_data:response_data}) %>
 
           <!-- 5 DAY FORECAST -->
           <%- include ("../partials/fiveDay", {response_data:response_data}) %>
 
+
           <!-- wiki data-->
           <%- include ("../partials/wikiData", {response_data:response_data}) %>
+
 
         <% }else{ %>
           <!-- error-->
           <%- include ("../partials/error") %>
+
         <% } %>
 
       </div>
