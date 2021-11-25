@@ -1,7 +1,7 @@
 <!-- 5 DAY FORECAST -->
 <% if(response_data.five_day!=""){%>
-  <div class="element-container">
-    <h2>Five Day Forecast</h2>
+  <div class="element-container col">
+    <h2 class="text-shadow">Five Day Forecast</h2>
     <div class="five-day-container closed">
       <% for(var i=0; i<response_data.five_day.list.length; i++){ %>
         <% let temp_time = new Date(response_data.five_day.list[i].dt_txt); %>
@@ -24,7 +24,7 @@
             <%}%>
 
 
-            <h3 class="weather-time"><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=time_string%> <div><%=response_data.five_day.list[i].main.temp%>&#176;F</div></h3> <div class="weather-time"><span class="weather-description-words cap"><%=response_data.five_day.list[i].weather[0].description%></span>  <div>Humidity: <%=response_data.five_day.list[i].main.humidity%>%</div></div>
+            <h3 class="weather-time "><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=time_string%> <div class="space-between"><%=response_data.five_day.list[i].main.temp%>&#176;F</div></h3> <div class="weather-time"><span class="weather-description-words cap"><%=response_data.five_day.list[i].weather[0].description%></span>  <div>Humidity: <%=response_data.five_day.list[i].main.humidity%>%</div></div>
         </span>
       <%}%>
     </div>

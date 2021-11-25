@@ -1,17 +1,18 @@
 
 <!-- CURRENT WEATHER DATA -->
 <% if(response_data.weather_current !=""){%>
-<div class="element-container ">
+<div class="element-container text-shadow col">
     <h2>Current Weather</h2>
-    <span class="weather-temp-container weather-box-align">
+    <span class="weather-temp-container space-between">
 
 
-      <span class="weather-desc">
-        <h1 class="weather-temp"><%= response_data.weather_current.main.temp %>&#176;F</h1>
+      <span class="weather-desc space-between">
+        <h1 class="weather-temp center"><%= response_data.weather_current.main.temp %>&#176;F</h1>
         <img class="weather-image" title="<%= response_data.weather_current.weather[0].description %>" src="<%= "http://openweathermap.org/img/wn/"+response_data.weather_current.weather[0].icon+"@2x.png"%>"/>
 
       </span>
     </span>
+
     <span class="cap"><%= response_data.weather_current.weather[0].description %> <br/></span>
     Wind: <%= response_data.weather_current.wind.speed %> mph <br/>
     Humidity: <%= response_data.weather_current.main.humidity %> %

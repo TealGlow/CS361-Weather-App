@@ -40,7 +40,6 @@ h1{
 
 h2{
   font-weight:bold;
-  text-shadow: 0 0 5px #000;
   font-size:2rem;
   color:white;
 }
@@ -50,7 +49,6 @@ h2{
 .text-shadow{
   text-shadow: 0 0 5px #000;
 }
-
 
 
 .error-msg{
@@ -143,10 +141,7 @@ footer
 
 
 .element-container{
-
-  text-shadow: 0 0 5px #000;
   display:flex;
-  flex-direction: column;
   background: rgba(41, 43, 44, .9);
   border-radius: 7px;
   width:600px;
@@ -210,11 +205,11 @@ individual element styling / other
 
 
 .weather-temp{
-
   text-align: left;
   font-weight: bold;
   margin-top:-65px;
   font-size: 5rem;
+
   display:flex;
   align-items: center;
   justify-content: center;
@@ -225,7 +220,6 @@ individual element styling / other
   display:flex;
   align-content: space-between;
   justify-content: space-between;
-
 }
 
 .cap{
@@ -233,29 +227,19 @@ individual element styling / other
 }
 
 
-.weather-time div{
-  align-content: space-between;
-}
-
 .loc-name{
   font-weight:bold;
-  text-shadow: 0 0 5px #000;
   font-size:3rem;
   color:white;
   margin-bottom:2rem;
 }
 
-.weather-box-align{
-  display:flex;
-  justify-content: space-between;
-}
 
 .weather-desc{
   margin-top:-30px;
   width:100%;
   display:flex;
   flex-direction: row;
-  justify-content:space-between;
 }
 
 .weather-image{
