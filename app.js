@@ -13,7 +13,7 @@ const ZIP_CODE_VALIDATE_URL = "http://127.0.0.1:5000/validate_zip?zipcode=";
 
 // setting the view engine to work with ejs
 app.set('view engine', 'ejs');
-app.use(express.static("public"));
+app.use(express.static(__dirname+"/public"));
 
 app.use(bodyParser.urlencoded({extended: true}));
 

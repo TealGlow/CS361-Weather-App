@@ -6,77 +6,25 @@
 
         <% if(response_data){ %>
           <h1 class="loc-name"><%=response_data.location_info.town%>, <%=response_data.location_info.state%> </h1>
-          <!-- CURRENT WEATHER DATA -->
-          <% if(response_data.weather_current !=""){%>
-          <div class="element-container text-shadow">
-              <h2>Current Weather:</h2>
-              <span class="weather-temp-container space-between center">
-                <h1 class="weather-temp"><%= response_data.weather_current.main.temp %>&#176;F</h1>
 
-                <span class="center-text center col">
-                  <img title="<%= response_data.weather_current.weather[0].description %>" src="<%= "http://openweathermap.org/img/wn/"+response_data.weather_current.weather[0].icon+"@2x.png"%>"/>
-                </span>
-              </span>
-              <%= response_data.weather_current.weather[0].description %> <br/>
-              Wind: <%= response_data.weather_current.wind.speed %> mph <br/>
-              Humidity: <%= response_data.weather_current.main.humidity %> %
-          </div>
-          <% } %>
-          <!-- END OF CURRENT WEATHER DATA -->
+
+          <!-- current weather -->
+          <%- include ("../partials/currentWeather", {response_data:response_data}) %>
 
           <!-- 5 DAY FORECAST -->
-          <% if(response_data.five_day!=""){%>
-            <div class="element-container">
-              <h2>Five Day Forecast:</h2>
-              <div class="five-day-container closed">
-                <% for(var i=0; i<response_data.five_day.list.length; i++){ %>
-                  <% let temp_time = new Date(response_data.five_day.list[i].dt_txt); %>
+          <%- include ("../partials/fiveDay", {response_data:response_data}) %>
 
 
-                  <% if(temp_time.getHours()=="0" || i==0){%>
-                    <!-- if it is a new day, we are going to display the date:-->
-                    <span class="list-group">
-                      <span class="list-group-item list-group-item-info"><strong><%=(temp_time.getMonth()+1)+"/"+temp_time.getDate()+"/"+temp_time.getFullYear()%></strong></span>
-                    </span>
-
-                  <%}%>
-                  <!-- display the temp for that time frame-->
-                  <span class="list-group">
-                    <span class="list-group-item">
-                      <%if(temp_time.getHours() >= 12){%>
-                        <%var time_string = "PM";%>
-                      <%}else{%>
-                        <%var time_string = "AM";%>
-                      <%}%>
+          <!-- wiki data-->
+          <%- include ("../partials/wikiData", {response_data:response_data}) %>
 
 
-                      <h3><%=('0'+temp_time.getHours()).slice(-2)%>:<%=('0'+temp_time.getMinutes()).slice(-2)%> <%=time_string%></h3>  <%=response_data.five_day.list[i].main.temp%>&#176;F  <%=response_data.five_day.list[i].weather[0].description%>  Humidity: <%=response_data.five_day.list[i].main.humidity%>%
-                  </span>
-                <%}%>
-              </div>
-              <%- include ("../partials/showmorebutton") %>
-            </div>
-          <%}%>
+        <% }else{ %>
+          <!-- error-->
+          <%- include ("../partials/error") %>
 
-
-          <!-- END OF 5 DAY FORECAST-->
-
-
-
-          <% if(response_data.wiki_data!="" && response_data.wiki_data){ %>
-              <div class="element-container text-shadow center col">
-                <h2><%=response_data.location_info.town%>, <%=response_data.location_info.state%> Information:</h2>
-                <div class="wiki-data closed col">
-                  <%for(var i=0; i<response_data.wiki_data.length; i++){%>
-                    <p>&emsp;&emsp;<%= response_data.wiki_data[i] %></p>
-                  <%}%>
-
-                </div>
-                <%- include ("../partials/showmorebutton") %>
-              </div>
-
-            <%}%>
         <% } %>
+
       </div>
     </div>
 
