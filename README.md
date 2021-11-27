@@ -15,7 +15,9 @@ user must enter a zip code.
 ## Table of contents
 - [Description](#SoftwareDevWatherApp)
 - [How to Install](#how-to-install)
-- [How to use] (#how-to-use)
+- [How to use](#how-to-use)
+- [Packages Used](#packages-used)
+- [Assets Used](#assets-used)
 
 
 ## How to install
@@ -55,3 +57,13 @@ NOTE: Please run the Wikipedia and weather microservice and zip code validators 
 2. Run The geojson zip code validator in a different instance / terminal.  This should be running on port 5000.
 3. Run the weather application and go to http://localhost:3001/ in your browser.
 4. Enter the zip code of the desired location :).
+
+## Packages used:
+- Express
+- EJS
+- body-parser
+- axios
+
+## Assets used: 
+- Background image citation: Vetsikas, Dimitris. clouds-cumulus-sky-nature-2329680. 2017. pixabay, https://pixabay.com/photos/clouds-cumulus-sky-nature-2329680/
+
