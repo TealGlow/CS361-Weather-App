@@ -51,7 +51,7 @@ nodemon app.js
 NOTE: Please run the Wikipedia and weather microservice and zip code validators before trying to use this app.
 
 ## How to use:
-1. Run the wikipedia web scraper in a different instance / terminal. This should be running on port 3001.
+1. Run the wikipedia web scraper in a different instance / terminal. This should be running on port 3000.
 2. Run The geojson zip code validator in a different instance / terminal.  This should be running on port 5000.
-3. Run the weather application and go to http://localhost:3000/ in your browser.
+3. Run the weather application and go to http://localhost:3001/ in your browser.
 4. Enter the zip code of the desired location :).
