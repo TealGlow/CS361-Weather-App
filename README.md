@@ -11,6 +11,10 @@ Last Updated: 11/27/2021
 Description: Web application that displays the current weather information, the 5 day forcast in 3 hour increments, and the information on the location.
 user must enter a zip code. 
 
+Video of the application in use:
+
+[![Weather application in use](http://img.youtube.com/vi/USQtq_w0Id0/0.jpg)](http://www.youtube.com/watch?v=USQtq_w0Id0 "Alyssa Comstock CS361 Software Engineering I Weather Application Portfolio Video")
+
 
 ## Table of contents
 - [Description](#SoftwareDevWatherApp)
