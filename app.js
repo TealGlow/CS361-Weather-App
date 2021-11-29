@@ -18,7 +18,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-app.get("/",(req,res)=>{
+app.get("/", (req,res)=>{
+  // main page
   res.render('pages/index',{message:""});
 });
 
@@ -77,6 +78,7 @@ app.post("/", (req, res)=>{
 
 
 app.get("/results", (req, res)=>{
+  // if the user got here on their own, they should be redirected
   res.redirect("/");
 });
 
