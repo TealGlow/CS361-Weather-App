@@ -29,7 +29,7 @@ Video of the application in use:
 requirements:
 - [npm](https://www.npmjs.com/)
 - [Node.js](https://nodejs.org/en/download/)
-- [Wikipedia and weather microservice](https://github.com/TealGlow/WikiWebScraper)
+- [Wikipedia and weather microservice](https://github.com/TealGlow/CS361-Wikipedia-Web-Scraper-Service)
 - [Zip code validator microservice](https://github.com/cjpdx-dev/geoJSON-imager)
 
 Installing:
